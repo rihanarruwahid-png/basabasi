@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Menu;
 
 class FrontController extends Controller
 {
@@ -21,13 +22,15 @@ class FrontController extends Controller
     // Halaman Menu
     public function menu()
     {
-        return view('menu');
+        $menus = Menu::orderBy('kategori')->orderBy('nama_menu')->get();
+        return view('menu', compact('menus'));
     }
 
     // Halaman Reservasi
     public function reservasi()
     {
-        return view('reservasi');
+        $menus = Menu::orderBy('kategori')->orderBy('nama_menu')->get();
+        return view('reservasi', compact('menus'));
     }
 
     // Halaman Gallery

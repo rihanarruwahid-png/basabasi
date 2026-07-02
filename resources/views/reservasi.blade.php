@@ -637,34 +637,13 @@ nav ul{
 </section>
 
 <script>
-const menuData = [
-    { id: 1, name: "Cafe Latte", price: 25000, cat: "coffee", desc: "Espresso dengan susu segar" },
-    { id: 2, name: "Cappuccino", price: 27000, cat: "coffee", desc: "Espresso, steamed milk, foam" },
-    { id: 3, name: "Espresso", price: 20000, cat: "coffee", desc: "Kopi hitam pekat bold" },
-    { id: 4, name: "Americano", price: 23000, cat: "coffee", desc: "Espresso dengan air panas" },
-    { id: 5, name: "Cold Brew", price: 30000, cat: "coffee", desc: "Kopi dingin seduh 12 jam" },
-    { id: 6, name: "Mocha", price: 32000, cat: "coffee", desc: "Espresso, cokelat, susu" },
-    { id: 7, name: "Caramel Macchiato", price: 33000, cat: "coffee", desc: "Espresso, vanilla, karamel" },
-    { id: 8, name: "Hazelnut Latte", price: 30000, cat: "coffee", desc: "Latte dengan sirup hazelnut" },
-    { id: 9, name: "Matcha Latte", price: 30000, cat: "non-coffee", desc: "Matcha premium Jepang" },
-    { id: 10, name: "Chocolate Hot", price: 28000, cat: "non-coffee", desc: "Cokelat Belgia premium" },
-    { id: 11, name: "Lemon Tea", price: 22000, cat: "non-coffee", desc: "Teh hitam dengan lemon" },
-    { id: 12, name: "Fruit Smoothie", price: 28000, cat: "non-coffee", desc: "Smoothie buah segar" },
-    { id: 13, name: "Chicken Sandwich", price: 40000, cat: "food", desc: "Roti gandum ayam panggang" },
-    { id: 14, name: "French Fries", price: 25000, cat: "food", desc: "Kentang goreng renyah" },
-    { id: 15, name: "Beef Burger", price: 45000, cat: "food", desc: "Burger daging sapi premium" },
-    { id: 16, name: "Caesar Salad", price: 35000, cat: "food", desc: "Selada romaine, dressing caesar" },
-    { id: 17, name: "Pasta Carbonara", price: 45000, cat: "food", desc: "Pasta saus creamy bacon" },
-    { id: 18, name: "Avocado Toast", price: 38000, cat: "food", desc: "Roti panggang alpukat" },
-    { id: 19, name: "Pancake Stack", price: 35000, cat: "food", desc: "Pancake fluffy maple syrup" },
-    { id: 20, name: "Cheesecake", price: 28000, cat: "dessert", desc: "Dessert tekstur lembut" },
-    { id: 21, name: "Tiramisu", price: 35000, cat: "dessert", desc: "Dessert klasik Italia" },
-    { id: 22, name: "Donat Cokelat", price: 18000, cat: "dessert", desc: "Donat glaze cokelat" },
-    { id: 23, name: "Chocolate Chip Cookies", price: 20000, cat: "dessert", desc: "Kue cokelat renyah" },
-    { id: 24, name: "Croissant", price: 25000, cat: "dessert", desc: "Roti croissant buttery" },
-    { id: 25, name: "Brownies", price: 25000, cat: "dessert", desc: "Brownies cokelat fudgy" },
-    { id: 26, name: "Ice Cream Sundae", price: 30000, cat: "dessert", desc: "Es krim vanilla topping" }
-];
+const menuData = @json($menus->map(fn($m) => [
+    'id' => $m->id,
+    'name' => $m->nama_menu,
+    'price' => $m->harga,
+    'cat' => strtolower($m->kategori),
+    'desc' => $m->deskripsi,
+]));
 
 const selectedItems = {};
 
