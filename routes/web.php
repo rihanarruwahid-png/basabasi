@@ -28,7 +28,7 @@ Route::get('/test', [FrontController::class, 'test'])->name('test');
 // ADMIN CRUD MENU
 // =======================
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::resource('menu', MenuController::class);
 
