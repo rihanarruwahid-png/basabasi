@@ -637,13 +637,13 @@ nav ul{
 </section>
 
 <script>
-const menuData = @json($menus->map(fn($m) => [
+const menuData = {!! json_encode($menus->map(fn($m) => [
     'id' => $m->id,
     'name' => $m->nama_menu,
     'price' => $m->harga,
     'cat' => strtolower($m->kategori),
     'desc' => $m->deskripsi,
-]));
+])) !!};
 
 const selectedItems = {};
 
